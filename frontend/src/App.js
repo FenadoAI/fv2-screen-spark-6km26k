@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import WallpaperGenerator from "./components/WallpaperGenerator";
+import { Toaster } from "@/components/ui/sonner";
 
 const API_BASE = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 const API = `${API_BASE}/api`;
@@ -20,21 +22,7 @@ const Home = () => {
     helloWorldApi();
   }, []);
 
-  return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://fenado.ai"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://fenado.ai/fenado-logo.png" className="w-32 h-32 rounded-lg cursor-pointer" alt="Fenado Logo" />
-        </a>
-        <p className="mt-5">Your AI-powered app will appear here</p>
-      </header>
-    </div>
-  );
+  return <WallpaperGenerator />;
 };
 
 function App() {
@@ -47,6 +35,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <Toaster />
     </div>
   );
 }
